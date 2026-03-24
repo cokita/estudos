@@ -34,7 +34,7 @@ jobs:
 
       - name: Instalar dependências
         working-directory: estudo-bncc
-        run: npm ci
+        run: npm install
 
       - name: Build de produção
         working-directory: estudo-bncc
