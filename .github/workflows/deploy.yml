@@ -30,19 +30,21 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: estudo-bncc/package-lock.json
 
       - name: Instalar dependências
-        run: cd estudos-bncc && npm ci
+        working-directory: estudo-bncc
+        run: npm ci
 
       - name: Build de produção
-        run: npx ng build --configuration=production --base-href="/estudo-bncc/"
-        # ↑ Troque "estudo-bncc" pelo nome exato do seu repositório no GitHub
+        working-directory: estudo-bncc
+        run: npx ng build --configuration=production --base-href="/estudos/"
+        # ↑ "estudos" é o nome do repositório no GitHub
 
       - name: Upload dos arquivos para o Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/estudo-bncc/browser
-          # ↑ Confirme este caminho após o primeiro `ng build` local
+          path: estudo-bncc/dist/estudo-bncc/browser
 
   deploy:
     name: Deploy
