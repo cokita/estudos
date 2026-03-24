@@ -1,0 +1,32 @@
+[
+  {
+    "id": "equacoes-1-grau",
+    "titulo": "Equações do 1º grau",
+    "habilidades": ["EF07MA18", "EF07MA19"],
+    "descricao": "Resolva equações e inequações lineares com uma incógnita"
+  },
+  {
+    "id": "numeros-racionais",
+    "titulo": "Números Racionais",
+    "habilidades": ["EF07MA07"],
+    "descricao": "Operações com inteiros negativos e frações"
+  },
+  {
+    "id": "fracoes",
+    "titulo": "Frações",
+    "habilidades": ["EF07MA10"],
+    "descricao": "Adição, subtração, multiplicação e divisão de frações"
+  },
+  {
+    "id": "proporcao-regra-tres",
+    "titulo": "Proporção e Regra de Três",
+    "habilidades": ["EF07MA17"],
+    "descricao": "Grandezas proporcionais e resolução de problemas"
+  },
+  {
+    "id": "geometria-angulos",
+    "titulo": "Geometria — Ângulos",
+    "habilidades": ["EF07MA32"],
+    "descricao": "Ângulos complementares, suplementares e opostos pelo vértice"
+  }
+]

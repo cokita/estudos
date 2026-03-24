@@ -1,0 +1,70 @@
+<!-- Header -->
+<header class="mat__header">
+  <div class="mat__header-inner">
+    <a routerLink="/" class="mat__voltar">
+      <lucide-icon [img]="icons.ArrowLeft" class="w-5 h-5" />
+    </a>
+    <div class="mat__header-title">
+      <span class="mat__nome" [style.color]="meta().cor">{{ meta().nome }}</span>
+      <span class="mat__ano">7º ano</span>
+    </div>
+  </div>
+</header>
+
+<!-- Barra decorativa -->
+<div class="mat__stripe" [style.background-color]="meta().cor"></div>
+
+<!-- Conteúdo -->
+<main class="mat__corpo">
+
+  @if (carregando()) {
+    <div class="mat__loading">
+      <div class="mat__spinner" [style.border-top-color]="meta().cor"></div>
+      <p>Carregando assuntos...</p>
+    </div>
+  }
+
+  @else if (assuntos().length === 0) {
+    <div class="mat__vazio">
+      <lucide-icon [img]="icons.BookOpen" class="w-12 h-12 text-slate-300" />
+      <p>Conteúdo em breve!</p>
+    </div>
+  }
+
+  @else {
+    <h2 class="mat__secao-titulo">Assuntos</h2>
+
+    <div class="mat__lista">
+      @for (assunto of assuntos(); track assunto.id) {
+        <a
+          [routerLink]="['/materia', id(), 'assunto', assunto.id]"
+          class="mat__card animate-fade-in"
+          [style.--cor]="meta().cor"
+        >
+          <!-- Número / índice -->
+          <span class="mat__card-num" [style.background-color]="meta().cor + '22'" [style.color]="meta().cor">
+            {{ $index + 1 }}
+          </span>
+
+          <!-- Info -->
+          <div class="mat__card-info">
+            <span class="mat__card-titulo">{{ assunto.titulo }}</span>
+            <span class="mat__card-desc">{{ assunto.descricao }}</span>
+
+            <!-- Habilidades BNCC -->
+            <div class="mat__habilidades">
+              @for (h of assunto.habilidades; track h) {
+                <span class="mat__hab-badge" [style.background-color]="meta().cor + '15'" [style.color]="meta().cor">
+                  {{ h }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <!-- Seta -->
+          <lucide-icon [img]="icons.ChevronRight" class="w-5 h-5 mat__card-seta" [style.color]="meta().cor" />
+        </a>
+      }
+    </div>
+  }
+</main>

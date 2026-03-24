@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/tailwindcss/package.json''\\).version\\)\")",
+      "WebSearch",
+      "WebFetch(domain:multi.rio)",
+      "WebFetch(domain:www.institutoclaro.org.br)",
+      "WebFetch(domain:escolaeducacao.com.br)",
+      "WebFetch(domain:www.colegioweb.com.br)",
+      "WebFetch(domain:jovemnerd.com.br)",
+      "WebFetch(domain:historiaaoquadrado.com)",
+      "WebFetch(domain:enem.not.br)",
+      "WebFetch(domain:aulas.aprendizap.com.br)",
+      "WebFetch(domain:www.infoescola.com)",
+      "WebFetch(domain:www.coladaweb.com)",
+      "WebFetch(domain:www.estudokids.com.br)",
+      "WebFetch(domain:slidetodoc.com)",
+      "WebFetch(domain:portaldoprofessor.mec.gov.br)",
+      "WebFetch(domain:professor-helio.webnode.page)",
+      "WebFetch(domain:videohighlight.com)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\cokit\\Dev\\ia\\estudos\\estudo-bncc\\src\\app\\core"
+    ]
+  }
+}

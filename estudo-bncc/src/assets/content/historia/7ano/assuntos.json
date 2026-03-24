@@ -1,0 +1,38 @@
+[
+  {
+    "id": "absolutismo",
+    "titulo": "Absolutismo Monárquico",
+    "habilidades": ["EF07HI05"],
+    "descricao": "O rei concentrava todo o poder — legislativo, executivo e judiciário"
+  },
+  {
+    "id": "mercantilismo",
+    "titulo": "Mercantilismo",
+    "habilidades": ["EF07HI06"],
+    "descricao": "A economia controlada pelo Estado para acumular metais preciosos"
+  },
+  {
+    "id": "cruzadas",
+    "titulo": "As Cruzadas",
+    "habilidades": ["EF07HI02"],
+    "descricao": "Expedições militares com motivações religiosas e econômicas"
+  },
+  {
+    "id": "burgos-burguesia",
+    "titulo": "Burgos e a Burguesia",
+    "habilidades": ["EF07HI03"],
+    "descricao": "O surgimento das cidades medievais e de uma nova classe social"
+  },
+  {
+    "id": "peste-negra",
+    "titulo": "A Peste Negra",
+    "habilidades": ["EF07HI04"],
+    "descricao": "A pandemia que matou até 60% da Europa e transformou a sociedade"
+  },
+  {
+    "id": "revoltas-camponesas",
+    "titulo": "Revoltas Camponesas",
+    "habilidades": ["EF07HI04"],
+    "descricao": "As Jacqueries e a crise do sistema feudal no século XIV"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "his7-abs-001",
+    "habilidade": "EF07HI05",
+    "titulo": "Absolutismo Monárquico",
+    "enunciado": "Segundo a Teoria do Direito Divino defendida por Bossuet, quem legitimava o poder do rei?",
+    "alternativas": [
+      { "texto": "A nobreza e os grandes proprietários de terra", "correta": false },
+      { "texto": "O povo, por meio de eleições e assembleias", "correta": false },
+      { "texto": "Deus — o poder do rei era sagrado e inquestionável", "correta": true },
+      { "texto": "A Igreja, que poderia retirar o poder do rei a qualquer momento", "correta": false }
+    ],
+    "explicacao": "A Teoria do Direito Divino afirmava que o poder do rei vinha diretamente de Deus. Obedecer o rei era obedecer a Deus, e questionar o rei era um pecado. A Igreja apoiava esse sistema, mas não controlava o rei — ela legitimava o poder real.",
+    "dificuldade": "facil"
+  },
+  {
+    "id": "his7-abs-002",
+    "habilidade": "EF07HI05",
+    "titulo": "Absolutismo Monárquico",
+    "enunciado": "Qual grupo social apoiou o absolutismo em troca de unificação de leis e segurança para o comércio?",
+    "alternativas": [
+      { "texto": "Os camponeses", "correta": false },
+      { "texto": "A burguesia", "correta": true },
+      { "texto": "O clero regular", "correta": false },
+      { "texto": "Os nobres feudais locais", "correta": false }
+    ],
+    "explicacao": "A burguesia apoiava os reis absolutistas porque precisava de moeda unificada, leis iguais em todo o território e estradas seguras para o comércio. O absolutismo atendia esses interesses e por isso contava com o apoio dessa classe.",
+    "dificuldade": "facil"
+  },
+  {
+    "id": "his7-abs-003",
+    "habilidade": "EF07HI05",
+    "titulo": "Absolutismo Monárquico",
+    "enunciado": "A frase 'Eu sou o Estado' é atribuída a qual monarca, considerado o maior símbolo do absolutismo?",
+    "alternativas": [
+      { "texto": "Henrique VIII da Inglaterra", "correta": false },
+      { "texto": "Carlos V da Espanha", "correta": false },
+      { "texto": "Luís XIV da França — 'O Rei Sol'", "correta": true },
+      { "texto": "Frederico II da Prússia", "correta": false }
+    ],
+    "explicacao": "Luís XIV (1638–1715), o 'Rei Sol', é o maior símbolo do absolutismo. A frase 'L'État c'est moi' ('Eu sou o Estado') resume sua visão de poder total. Ele construiu o Palácio de Versalhes como símbolo de grandeza e concentração de poder.",
+    "dificuldade": "facil"
+  },
+  {
+    "id": "his7-mer-001",
+    "habilidade": "EF07HI06",
+    "titulo": "Mercantilismo",
+    "enunciado": "O que o mercantilismo NÃO defendia?",
+    "alternativas": [
+      { "texto": "Acúmulo de ouro e prata pelo Estado", "correta": false },
+      { "texto": "Controle da economia pelo rei", "correta": false },
+      { "texto": "Liberdade econômica total, sem intervenção do Estado", "correta": true },
+      { "texto": "Exportar mais do que importar", "correta": false }
+    ],
+    "explicacao": "O mercantilismo é o oposto do liberalismo econômico. Enquanto o liberalismo defende o livre mercado sem intervenção do Estado, o mercantilismo colocava o Estado (o rei) como controlador de toda a economia. Acúmulo de metais, protecionismo e controle estatal são características mercantilistas.",
+    "dificuldade": "medio"
+  },
+  {
+    "id": "his7-mer-002",
+    "habilidade": "EF07HI06",
+    "titulo": "Mercantilismo",
+    "enunciado": "O 'Pacto Colonial' no mercantilismo determinava que as colônias deveriam:",
+    "alternativas": [
+      { "texto": "Desenvolver sua própria indústria para se tornarem independentes", "correta": false },
+      { "texto": "Comercializar livremente com qualquer país", "correta": false },
+      { "texto": "Fornecer matéria-prima e comprar apenas os manufaturados da metrópole", "correta": true },
+      { "texto": "Pagar impostos diretamente para a Igreja Católica", "correta": false }
+    ],
+    "explicacao": "O Pacto Colonial era o coração do mercantilismo colonial: a colônia fornecia matéria-prima barata (ouro, madeira, açúcar) para a metrópole, e era obrigada a comprar apenas os produtos manufaturados (tecidos, ferramentas) da metrópole, com preços controlados pelo rei.",
+    "dificuldade": "medio"
+  },
+  {
+    "id": "his7-cru-001",
+    "habilidade": "EF07HI02",
+    "titulo": "As Cruzadas",
+    "enunciado": "Qual foi uma consequência das Cruzadas para o sistema feudal europeu?",
+    "alternativas": [
+      { "texto": "O feudalismo se fortaleceu pois os nobres voltaram com mais terras", "correta": false },
+      { "texto": "Nobres empobrecidos perderam terras, fortalecendo o poder dos reis", "correta": true },
+      { "texto": "A Igreja passou a controlar todos os exércitos da Europa", "correta": false },
+      { "texto": "O comércio com o Oriente foi completamente interrompido", "correta": false }
+    ],
+    "explicacao": "As Cruzadas custaram fortunas. Muitos nobres se endividaram ou venderam terras para financiar as expedições. Com a nobreza enfraquecida, os reis aproveitaram para absorver esse poder — o que foi um passo importante para o surgimento do absolutismo.",
+    "dificuldade": "medio"
+  },
+  {
+    "id": "his7-cru-002",
+    "habilidade": "EF07HI02",
+    "titulo": "As Cruzadas",
+    "enunciado": "Sobre os participantes das Cruzadas, é CORRETO afirmar que:",
+    "alternativas": [
+      { "texto": "Apenas cavaleiros nobres participavam, pois o Papa proibiu a presença de camponeses", "correta": false },
+      { "texto": "Somente o clero podia participar, como representante de Deus", "correta": false },
+      { "texto": "Camponeses também participaram, motivados por promessas de perdão dos pecados", "correta": true },
+      { "texto": "A participação era restrita a homens adultos com mais de 21 anos", "correta": false }
+    ],
+    "explicacao": "Os camponeses participaram ativamente das Cruzadas, especialmente nas 'Cruzadas Populares'. Eram motivados por promessas de perdão dos pecados e pela esperança de melhores condições de vida. A ideia de que só nobres participavam é uma das pegadinhas mais comuns da prova.",
+    "dificuldade": "dificil"
+  },
+  {
+    "id": "his7-bur-001",
+    "habilidade": "EF07HI03",
+    "titulo": "Burgos e Burguesia",
+    "enunciado": "A palavra 'burguesia' tem origem em:",
+    "alternativas": [
+      { "texto": "Burgo — cidades muradas onde os comerciantes moravam", "correta": true },
+      { "texto": "Bourgeois — nome de uma família nobre francesa", "correta": false },
+      { "texto": "Burro — animais de carga usados no comércio medieval", "correta": false },
+      { "texto": "Bergamo — cidade italiana famosa pelo comércio de seda", "correta": false }
+    ],
+    "explicacao": "Burgos eram cidades muradas medievais. Quem lá morava era chamado de burguês, e o conjunto desses burgueses formou a burguesia — uma nova classe social identificada pelo comércio e artesanato, diferente da nobreza e do clero.",
+    "dificuldade": "facil"
+  },
+  {
+    "id": "his7-pes-001",
+    "habilidade": "EF07HI04",
+    "titulo": "A Peste Negra",
+    "enunciado": "Qual foi o principal fator que transformou a Peste Negra numa epidemia de proporções catastróficas na Europa medieval?",
+    "alternativas": [
+      { "texto": "O uso de armas biológicas pelos exércitos muçulmanos durante as Cruzadas", "correta": false },
+      { "texto": "A falta de higiene nas cidades, a desnutrição e as rotas comerciais que espalhavam ratos infectados", "correta": true },
+      { "texto": "A ausência de médicos na Europa, pois todos haviam morrido nas Cruzadas", "correta": false },
+      { "texto": "O clima frio do século XIV que enfaqueceu as defesas naturais dos europeus", "correta": false }
+    ],
+    "explicacao": "Três fatores explicam a rápida propagação: (1) cidades medievais superlotadas e sem esgoto, com ratos portando pulgas infectadas pela Yersinia pestis; (2) população desnutrida com sistema imunológico fraco; (3) rotas comerciais marítimas e terrestres que conectavam toda a Europa, facilitando a disseminação.",
+    "dificuldade": "medio"
+  },
+  {
+    "id": "his7-rev-001",
+    "habilidade": "EF07HI04",
+    "titulo": "Revoltas Camponesas",
+    "enunciado": "As Jacqueries foram revoltas camponesas ocorridas na França em 1358. Qual combinação de fatores as originou?",
+    "alternativas": [
+      { "texto": "Invasão mongol e secas prolongadas que destruíram as colheitas", "correta": false },
+      { "texto": "Superexploração feudal agravada pela falta de mão de obra após a Peste Negra", "correta": true },
+      { "texto": "Influência das ideias protestantes de Martinho Lutero sobre igualdade", "correta": false },
+      { "texto": "A proibição do comércio nas cidades imposta pelos reis absolutistas", "correta": false }
+    ],
+    "explicacao": "As Jacqueries resultaram de uma cadeia de causas: a Peste Negra matou até 60% da população → falta de braços para trabalhar → senhores feudais aumentaram a exploração para manter a produção → camponeses ao limite se rebelaram. É a cadeia de causalidade que a prova sempre pede.",
+    "dificuldade": "dificil"
+  }
+]

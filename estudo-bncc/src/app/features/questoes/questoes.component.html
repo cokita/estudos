@@ -1,0 +1,155 @@
+<!-- Carregando -->
+@if (carregando()) {
+  <div class="quiz__loading">
+    <div class="quiz__spinner" [style.border-top-color]="corMateria()"></div>
+    <p>Carregando questões...</p>
+  </div>
+}
+
+<!-- Finalizado -->
+@else if (finalizado()) {
+  <div class="quiz__resultado animate-fade-in">
+    <div class="quiz__resultado-icon">
+      <lucide-icon [img]="icons.Trophy" class="w-16 h-16 text-amber-400" />
+    </div>
+    <h2 class="quiz__resultado-titulo">Quiz finalizado!</h2>
+    <p class="quiz__resultado-sub">{{ tituloAssunto() || nomeMateria() }}</p>
+
+    <div class="quiz__resultado-stats">
+      <div class="quiz__stat quiz__stat--acerto">
+        <lucide-icon [img]="icons.CheckCircle2" class="w-6 h-6" />
+        <span class="quiz__stat-num">{{ acertos() }}</span>
+        <span class="quiz__stat-label">acertos</span>
+      </div>
+      <div class="quiz__stat quiz__stat--erro">
+        <lucide-icon [img]="icons.XCircle" class="w-6 h-6" />
+        <span class="quiz__stat-num">{{ erros() }}</span>
+        <span class="quiz__stat-label">erros</span>
+      </div>
+    </div>
+
+    <!-- Barra de acerto -->
+    <div class="quiz__resultado-barra-bg">
+      <div
+        class="quiz__resultado-barra"
+        [style.width.%]="percentualAcerto()"
+        [style.background]="'linear-gradient(90deg,' + corMateria() + ', ' + corMateria() + 'aa)'"
+      ></div>
+    </div>
+    <p class="quiz__resultado-pct">{{ percentualAcerto() }}% de acerto</p>
+
+    <div class="quiz__resultado-acoes">
+      <button class="quiz__btn quiz__btn--primario" [style.background-color]="corMateria()" (click)="reiniciar()">
+        <lucide-icon [img]="icons.RotateCcw" class="w-4 h-4" />
+        Tentar novamente
+      </button>
+      <a [routerLink]="['/materia', id(), 'assunto', topico()]" class="quiz__btn quiz__btn--secundario">
+        <lucide-icon [img]="icons.ArrowLeft" class="w-4 h-4" />
+        Voltar ao conteúdo
+      </a>
+    </div>
+  </div>
+}
+
+<!-- Quiz em andamento -->
+@else if (questaoAtual()) {
+  <div class="quiz">
+    <!-- Cabeçalho -->
+    <header class="quiz__header">
+      <a [routerLink]="['/materia', id(), 'assunto', topico()]" class="quiz__voltar">
+        <lucide-icon [img]="icons.ArrowLeft" class="w-5 h-5" />
+      </a>
+      <div class="quiz__header-info">
+        <span class="quiz__materia" [style.color]="corMateria()">{{ tituloAssunto() || nomeMateria() }}</span>
+        <span class="quiz__contador">{{ indiceAtual() + 1 }} / {{ total() }}</span>
+      </div>
+      <div class="quiz__placar">
+        <lucide-icon [img]="icons.CheckCircle2" class="w-4 h-4 text-emerald-500" />
+        <span class="text-emerald-600 font-semibold">{{ acertos() }}</span>
+      </div>
+    </header>
+
+    <!-- Barra de progresso -->
+    <div class="quiz__progress-bg">
+      <div class="quiz__progress-fill" [style.width.%]="progresso$()" [style.background-color]="corMateria()"></div>
+    </div>
+
+    <!-- Questão -->
+    <main class="quiz__corpo animate-fade-in">
+      <!-- Meta -->
+      <div class="quiz__meta">
+        <span class="quiz__habilidade" [style.background-color]="corMateria() + '18'" [style.color]="corMateria()">
+          {{ questaoAtual().habilidade }}
+        </span>
+        <span class="quiz__dificuldade quiz__dificuldade--{{ questaoAtual().dificuldade }}">
+          {{ questaoAtual().dificuldade }}
+        </span>
+      </div>
+
+      <p class="quiz__enunciado">{{ questaoAtual().enunciado }}</p>
+
+      <!-- Alternativas -->
+      <div class="quiz__alternativas">
+        @for (alt of questaoAtual().alternativas; track $index) {
+          <button
+            class="quiz__alt"
+            [class.quiz__alt--correta]="estadoAlternativas()[$index] === 'correta'"
+            [class.quiz__alt--errada]="estadoAlternativas()[$index] === 'errada'"
+            [class.quiz__alt--revelada]="estadoAlternativas()[$index] === 'revelada'"
+            [disabled]="respondida()"
+            (click)="selecionar($index)"
+          >
+            <span class="quiz__alt-letra" [style.background-color]="!respondida() ? corMateria() + '18' : ''" [style.color]="!respondida() ? corMateria() : ''">
+              {{ labelLetra($index) }}
+            </span>
+            <span class="quiz__alt-texto">{{ alt.texto }}</span>
+            @if (respondida()) {
+              @if (alt.correta) {
+                <lucide-icon [img]="icons.CheckCircle2" class="w-5 h-5 text-emerald-500 ml-auto flex-shrink-0" />
+              } @else if ($index === alternativaSelecionada()) {
+                <lucide-icon [img]="icons.XCircle" class="w-5 h-5 text-red-500 ml-auto flex-shrink-0" />
+              }
+            }
+          </button>
+        }
+      </div>
+
+      <!-- Feedback + Explicação -->
+      @if (respondida()) {
+        <div class="quiz__feedback animate-fade-in"
+          [class.quiz__feedback--acerto]="questaoAtual().alternativas[alternativaSelecionada()!]?.correta"
+          [class.quiz__feedback--erro]="!questaoAtual().alternativas[alternativaSelecionada()!]?.correta"
+        >
+          @if (questaoAtual().alternativas[alternativaSelecionada()!]?.correta) {
+            <p class="quiz__feedback-titulo">
+              <lucide-icon [img]="icons.CheckCircle2" class="w-5 h-5" /> Correto! Muito bem!
+            </p>
+          } @else {
+            <p class="quiz__feedback-titulo">
+              <lucide-icon [img]="icons.XCircle" class="w-5 h-5" /> Não foi dessa vez...
+            </p>
+          }
+
+          <button class="quiz__explicacao-btn" (click)="toggleExplicacao()">
+            <lucide-icon [img]="icons.Lightbulb" class="w-4 h-4" />
+            {{ mostrarExplicacao() ? 'Ocultar' : 'Ver' }} explicação
+          </button>
+
+          @if (mostrarExplicacao()) {
+            <p class="quiz__explicacao-texto animate-slide-in">{{ questaoAtual().explicacao }}</p>
+          }
+        </div>
+
+        <button class="quiz__btn quiz__btn--primario quiz__btn--proximo" [style.background-color]="corMateria()" (click)="proximo()">
+          @if (indiceAtual() < total() - 1) {
+            Próxima questão
+            <lucide-icon [img]="icons.ChevronRight" class="w-5 h-5" />
+          } @else {
+            Ver resultado
+            <lucide-icon [img]="icons.Trophy" class="w-5 h-5" />
+          }
+        </button>
+      }
+    </main>
+  </div>
+}

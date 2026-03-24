@@ -1,0 +1,64 @@
+<div class="home">
+  <!-- Header -->
+  <header class="home__header">
+    <div class="home__header-inner">
+      <div class="home__logo">
+        <lucide-icon [img]="icons.Zap" class="w-7 h-7 text-indigo-500" />
+        <span class="home__logo-text">EstudaBNCC</span>
+      </div>
+      <span class="home__ano-badge">7º Ano</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="home__hero">
+    <h1 class="home__title">Olá! Pronto para estudar? 🚀</h1>
+    <p class="home__subtitle">Escolha uma matéria e pratique com questões baseadas na BNCC.</p>
+  </section>
+
+  <!-- Cards de matérias -->
+  <main class="home__grid">
+    @for (materia of materias; track materia.id) {
+      <a
+        [routerLink]="['/materia', materia.id]"
+        class="home__card"
+        [class]="materia.corClasse + ' border ' + materia.corBorda"
+      >
+        <!-- Ícone -->
+        <div class="home__card-icon" [style.background-color]="materia.cor + '22'">
+          <lucide-icon
+            [img]="getIcone(materia.iconeLucide)"
+            class="w-8 h-8"
+            [style.color]="materia.cor"
+          />
+        </div>
+
+        <!-- Info -->
+        <div class="home__card-info">
+          <h2 class="home__card-name" [style.color]="materia.cor">{{ materia.nome }}</h2>
+          <p class="home__card-desc">7º ano · BNCC</p>
+        </div>
+
+        <!-- Progresso -->
+        <div class="home__card-progress">
+          <div class="home__progress-bar-bg">
+            <div
+              class="home__progress-bar"
+              [style.width.%]="getPercentual(materia.id)"
+              [style.background-color]="materia.cor"
+            ></div>
+          </div>
+          <span class="home__progress-pct" [style.color]="materia.cor">
+            {{ getPercentual(materia.id) }}%
+          </span>
+        </div>
+      </a>
+    }
+  </main>
+
+  <!-- Rodapé motivacional -->
+  <footer class="home__footer">
+    <lucide-icon [img]="icons.Trophy" class="w-5 h-5 text-amber-400" />
+    <span>Continue praticando para melhorar seu desempenho!</span>
+  </footer>
+</div>

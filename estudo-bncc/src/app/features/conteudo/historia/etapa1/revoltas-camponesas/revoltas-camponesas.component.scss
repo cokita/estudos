@@ -1,0 +1,371 @@
+:host { display: block; }
+
+.rev {
+  font-family: 'DM Sans', system-ui, sans-serif;
+
+  // ── Hero ──────────────────────────────────────
+  &__hero {
+    background: #1a4a6b;
+    color: #fff;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+
+  &__hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 0.6rem;
+    position: relative;
+  }
+
+  &__hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    position: relative;
+  }
+
+  &__hero-sub {
+    font-size: 0.9rem;
+    opacity: 0.78;
+    margin: 0 0 1.25rem;
+    position: relative;
+  }
+
+  &__hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    position: relative;
+
+    span {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      padding: 0.25rem 0.8rem;
+      border-radius: 99px;
+      font-size: 0.78rem;
+    }
+  }
+
+  // ── Corpo ──────────────────────────────────────
+  &__body {
+    padding: 1.75rem 1.25rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__intro {
+    font-size: 0.9375rem;
+    color: #4a4640;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+
+    strong { color: #1c1a16; }
+  }
+
+  // ── 3 forças convergentes ──────────────────────
+  &__forces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+    margin-bottom: 1.75rem;
+
+    @media (max-width: 580px) { grid-template-columns: 1fr; }
+  }
+
+  &__force {
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid #e0dbd0;
+    background: #fffef9;
+    text-align: center;
+
+    &--blue  { border-top: 4px solid #1a4a6b; }
+    &--red   { border-top: 4px solid #8b3a2a; }
+    &--gold  { border-top: 4px solid #c8932a; }
+  }
+
+  &__force-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.4rem;
+    line-height: 1;
+  }
+
+  &__force-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #1c1a16;
+    margin-bottom: 0.4rem;
+  }
+
+  &__force-desc {
+    font-size: 0.825rem;
+    color: #4a4640;
+    line-height: 1.55;
+  }
+
+  // ── Label de seção ─────────────────────────────
+  &__section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8a8580;
+    margin: 1.75rem 0 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e0dbd0;
+    }
+  }
+
+  // ── Numbered cards ─────────────────────────────
+  &__numbered-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__num-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: #fffef9;
+    border: 1px solid #e0dbd0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+  }
+
+  &__num-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #8b3a2a;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  &__num-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1c1a16;
+    margin-bottom: 0.3rem;
+  }
+
+  &__num-desc {
+    font-size: 0.875rem;
+    color: #4a4640;
+    line-height: 1.65;
+
+    strong { color: #1c1a16; }
+    em { font-style: italic; }
+  }
+
+  // ── Card genérico ──────────────────────────────
+  &__card {
+    background: #fffef9;
+    border: 1px solid #e0dbd0;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+
+    h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      color: #1c1a16;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: #4a4640;
+      line-height: 1.7;
+      margin: 0 0 0.6rem;
+
+      &:last-child { margin-bottom: 0; }
+    }
+
+    strong { color: #1c1a16; }
+
+    &--blue  { border-left: 4px solid #1a4a6b; }
+    &--red   { border-left: 4px solid #8b3a2a; }
+    &--gold  { border-left: 4px solid #c8932a; }
+    &--green { border-left: 4px solid #3a6b2a; }
+  }
+
+  // ── Callout (ícone) ────────────────────────────
+  &__callout {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: #fdf8f0;
+    border: 1px solid #e8dfc8;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin: 0 0 1.25rem;
+
+    p {
+      font-size: 0.875rem;
+      color: #4a4640;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    strong { color: #1c1a16; }
+    em { font-style: italic; }
+  }
+
+  &__callout-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  // ── Tabela ─────────────────────────────────────
+  &__table-wrap {
+    margin: 0 0 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e0dbd0;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+
+    th {
+      background: #1a4a6b;
+      color: #fff;
+      padding: 0.625rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    td {
+      padding: 0.6rem 1rem;
+      color: #4a4640;
+      border-bottom: 1px solid #e8e3d8;
+      line-height: 1.5;
+
+      strong { color: #1c1a16; }
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #faf7f2; }
+  }
+
+  // ── Timeline ───────────────────────────────────
+  &__timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 0 0 1.5rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e0dbd0;
+    }
+  }
+
+  &__tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  &__tl-dot {
+    position: absolute;
+    left: -1.82rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #1a4a6b;
+    border: 2px solid #faf8f4;
+
+    &--gold  { background: #c8932a; }
+    &--red   { background: #8b3a2a; }
+    &--gray  { background: #8a8580; }
+  }
+
+  &__tl-year {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #c8932a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.1rem;
+  }
+
+  &__tl-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #1c1a16;
+    margin-bottom: 0.2rem;
+  }
+
+  &__tl-desc {
+    font-size: 0.875rem;
+    color: #4a4640;
+    line-height: 1.6;
+  }
+
+  // ── Conclusão ──────────────────────────────────
+  &__conclusao {
+    background: #f5f0e8;
+    border: 1px solid #ddd6c4;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 0 0 1.5rem;
+
+    p { font-size: 0.9375rem; color: #4a4640; line-height: 1.7; margin: 0; }
+    strong { color: #1c1a16; }
+  }
+
+  &__conclusao-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #c8932a;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,67 @@
+<!-- Header da casca (sempre visível) -->
+<header class="assunto__header">
+  <div class="assunto__header-inner">
+    <a [routerLink]="['/materia', id()]" class="assunto__voltar">
+      <lucide-icon [img]="icons.ArrowLeft" class="w-5 h-5" />
+    </a>
+    <div class="assunto__header-title">
+      <span class="assunto__materia" [style.color]="corMateria()">{{ nomeMateriaFormatado() }}</span>
+      <span class="assunto__titulo-header">{{ tituloAssunto() || topico() }}</span>
+    </div>
+  </div>
+</header>
+
+<div class="assunto__stripe" [style.background-color]="corMateria()"></div>
+
+<main class="assunto__corpo">
+
+  @if (carregando()) {
+    <div class="assunto__loading">
+      <div class="assunto__spinner" [style.border-top-color]="corMateria()"></div>
+      <p>Carregando conteúdo...</p>
+    </div>
+  }
+
+  @else if (erro()) {
+    <div class="assunto__erro">
+      <lucide-icon [img]="icons.AlertCircle" class="w-10 h-10 text-slate-400" />
+      <p>Conteúdo não encontrado.</p>
+      <a [routerLink]="['/materia', id()]" class="assunto__btn-sec">Voltar</a>
+    </div>
+  }
+
+  @else {
+    <!-- Componente rico (história, etc.) -->
+    @if (componenteRico()) {
+      <div class="assunto__rico animate-fade-in">
+        <ng-container [ngComponentOutlet]="componenteRico()!" />
+      </div>
+    }
+
+    <!-- Fallback markdown -->
+    @else if (usarMarkdown()) {
+      <article class="assunto__md animate-fade-in">
+        <markdown [data]="conteudoMd()" />
+      </article>
+    }
+
+    <!-- CTA Quiz -->
+    <div class="assunto__cta animate-fade-in">
+      <div class="assunto__cta-inner" [style.border-color]="corMateria() + '44'">
+        <div class="assunto__cta-text">
+          <span class="assunto__cta-titulo">Pronto para praticar?</span>
+          <span class="assunto__cta-sub">Responda questões sobre este assunto</span>
+        </div>
+        <a
+          [routerLink]="['/materia', id(), 'assunto', topico(), 'quiz']"
+          class="assunto__btn-quiz"
+          [style.background-color]="corMateria()"
+        >
+          <lucide-icon [img]="icons.Play" class="w-5 h-5" />
+          Fazer Quiz
+        </a>
+      </div>
+    </div>
+  }
+
+</main>

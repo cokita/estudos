@@ -1,0 +1,191 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+:host { display: block; min-height: 100vh; background: #f8fafc; }
+
+// Header
+.mat__header {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mat__header-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.mat__voltar {
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  padding: 0.375rem;
+  border-radius: 0.5rem;
+  transition: $transition;
+  &:hover { background: #f1f5f9; color: #1e293b; }
+}
+
+.mat__header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.mat__nome {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mat__ano {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+// Barra decorativa
+.mat__stripe {
+  height: 4px;
+  width: 100%;
+}
+
+// Corpo
+.mat__corpo {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.mat__secao-titulo {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.875rem;
+}
+
+// Loading
+.mat__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  gap: 1rem;
+  color: #94a3b8;
+}
+
+.mat__spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e2e8f0;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+// Vazio
+.mat__vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 0;
+  color: #94a3b8;
+  font-size: 0.9375rem;
+}
+
+// Lista de assuntos
+.mat__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+// Card de assunto
+.mat__card {
+  @include card-base;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.125rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: $radius-card;
+
+  &:hover .mat__card-seta {
+    transform: translateX(4px);
+  }
+}
+
+.mat__card-num {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  flex-shrink: 0;
+}
+
+.mat__card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.mat__card-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat__card-desc {
+  font-size: 0.8125rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat__habilidades {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.mat__hab-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.mat__card-seta {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in { animation: fadeIn 0.25s ease forwards; }

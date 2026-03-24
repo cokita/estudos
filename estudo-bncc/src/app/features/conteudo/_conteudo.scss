@@ -1,0 +1,53 @@
+// Design system compartilhado para componentes de conteúdo rico
+// Importar com: @use '../conteudo' as c;
+
+// Fontes históricas — adicionadas no index.html via Google Fonts
+// Playfair Display (títulos), Source Serif 4 (corpo), DM Sans (UI)
+
+// Tokens
+$bg:      #faf8f4;
+$paper:   #fffef9;
+$ink:     #1c1a16;
+$ink2:    #4a4640;
+$ink3:    #8a8580;
+$divider: #e0dbd0;
+$tag-bg:  #f0ebe0;
+
+// Mixin para card com borda esquerda colorida
+@mixin card($accent: #1a4a6b) {
+  background: $paper;
+  border: 1px solid $divider;
+  border-left: 4px solid $accent;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+// Mixin para caixa de conceito-chave
+@mixin conceito($cor: #c8932a) {
+  background: #f5f0e8;
+  border: 1px solid #ddd6c4;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+  .label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $cor;
+    margin-bottom: 0.4rem;
+  }
+}
+
+// Mixin para quote block
+@mixin quote($cor: #c8932a) {
+  border-left: 3px solid $cor;
+  padding: 1rem 1.5rem;
+  background: #fdf8f0;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0;
+  font-style: italic;
+  color: $ink2;
+  font-size: 0.97rem;
+}

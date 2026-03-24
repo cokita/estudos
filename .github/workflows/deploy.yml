@@ -1,0 +1,59 @@
+name: Deploy para GitHub Pages
+
+on:
+  push:
+    branches:
+      - main        # dispara a cada push na main
+  workflow_dispatch: # permite rodar manualmente pelo GitHub
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante que apenas um deploy rode por vez
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build de produção
+        run: npx ng build --configuration=production --base-href="/estudo-bncc/"
+        # ↑ Troque "estudo-bncc" pelo nome exato do seu repositório no GitHub
+
+      - name: Upload dos arquivos para o Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/estudo-bncc/browser
+          # ↑ Confirme este caminho após o primeiro `ng build` local
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy para GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

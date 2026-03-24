@@ -1,0 +1,206 @@
+<div class="pes">
+
+  <!-- Hero -->
+  <div class="pes__hero">
+    <div class="pes__hero-eyebrow">1347–1353 · EF07HI04</div>
+    <h1 class="pes__hero-title">A Peste Negra</h1>
+    <p class="pes__hero-sub">A pandemia que matou até metade da Europa e transformou para sempre a sociedade medieval</p>
+    <div class="pes__hero-tags">
+      <span>Yersinia pestis</span>
+      <span>Epidemia</span>
+      <span>Ratos</span>
+      <span>Rotas Comerciais</span>
+    </div>
+  </div>
+
+  <div class="pes__body">
+
+    <!-- Stats de destaque -->
+    <div class="pes__stats">
+      <div class="pes__stat">
+        <div class="pes__stat-number">30–60%</div>
+        <div class="pes__stat-label">da população europeia morta</div>
+      </div>
+      <div class="pes__stat">
+        <div class="pes__stat-number">25–50 mi</div>
+        <div class="pes__stat-label">de mortes em apenas 6 anos</div>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <p class="pes__intro">
+      Em 1347, navios genoveses aportaram na Sicília trazendo marinheiros doentes ou mortos.
+      A <em>Yersinia pestis</em> — bactéria transmitida pelas pulgas dos ratos — se espalharia
+      pela Europa inteira em menos de 6 anos, numa proporção que o mundo não veria novamente
+      até o século XX. A <strong>Peste Negra</strong> não foi apenas uma tragédia biológica:
+      foi um <strong>catalisador histórico</strong> que desintegrou o mundo feudal.
+    </p>
+
+    <!-- SVG Cadeia de transmissão -->
+    <div class="pes__diagram-wrap">
+      <svg width="100%" viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="pes-arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- Box 1 -->
+        <rect x="10" y="44" width="145" height="52" rx="7" fill="#e8f0fa" stroke="#1a4a6b" stroke-width="1.5"/>
+        <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="700"
+          fill="#1a4a6b" text-anchor="middle" x="82" y="68">🐀 Ratos infectados</text>
+        <text font-family="'DM Sans',sans-serif" font-size="9.5" fill="#3a5a8a"
+          text-anchor="middle" x="82" y="86">portadores da bactéria</text>
+
+        <line x1="157" y1="70" x2="193" y2="70" stroke="#555" stroke-width="1.5" marker-end="url(#pes-arrow)"/>
+
+        <!-- Box 2 -->
+        <rect x="195" y="44" width="145" height="52" rx="7" fill="#fff8e8" stroke="#c8932a" stroke-width="1.5"/>
+        <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="700"
+          fill="#c8932a" text-anchor="middle" x="267" y="68">🦟 Pulgas</text>
+        <text font-family="'DM Sans',sans-serif" font-size="9.5" fill="#6a4a10"
+          text-anchor="middle" x="267" y="86">sugam o sangue dos ratos</text>
+
+        <line x1="342" y1="70" x2="378" y2="70" stroke="#555" stroke-width="1.5" marker-end="url(#pes-arrow)"/>
+
+        <!-- Box 3 -->
+        <rect x="380" y="44" width="145" height="52" rx="7" fill="#faeaea" stroke="#8b3a2a" stroke-width="1.5"/>
+        <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="700"
+          fill="#8b3a2a" text-anchor="middle" x="452" y="68">👤 Humanos</text>
+        <text font-family="'DM Sans',sans-serif" font-size="9.5" fill="#6a2a1a"
+          text-anchor="middle" x="452" y="86">picados pelas pulgas</text>
+
+        <line x1="527" y1="70" x2="563" y2="70" stroke="#555" stroke-width="1.5" marker-end="url(#pes-arrow)"/>
+
+        <!-- Box 4 -->
+        <rect x="565" y="32" width="145" height="76" rx="7" fill="#f0f0f0" stroke="#666" stroke-width="1.5"/>
+        <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="700"
+          fill="#333" text-anchor="middle" x="637" y="60">👥 Outros humanos</text>
+        <text font-family="'DM Sans',sans-serif" font-size="9.5" fill="#555"
+          text-anchor="middle" x="637" y="76">(forma pneumônica)</text>
+        <text font-family="'DM Sans',sans-serif" font-size="9" fill="#8a3a2a"
+          text-anchor="middle" x="637" y="98">via tosse e gotículas</text>
+
+        <!-- Label de transmissão -->
+        <text font-family="'DM Sans',sans-serif" font-size="9" fill="#888"
+          text-anchor="middle" x="360" y="125">→ Cadeia de transmissão da Yersinia pestis</text>
+      </svg>
+      <div class="pes__diagram-caption">
+        Cadeia de transmissão — a forma bubônica vinha das pulgas; a pneumônica se espalhava pelo ar
+      </div>
+    </div>
+
+    <!-- Por que virou epidemia -->
+    <div class="pes__section-label">Por que virou epidemia?</div>
+    <div class="pes__numbered-cards">
+      <div class="pes__num-card">
+        <div class="pes__num-badge">1</div>
+        <div>
+          <div class="pes__num-title">Falta de higiene</div>
+          <div class="pes__num-desc">
+            Cidades superlotadas, esgoto despejado nas ruas, lixo acumulado.
+            Ratos conviviam com humanos em celeiros, adegas e casas.
+            Ninguém associava doença a germes — a medicina medieval culpava o "ar corrupto".
+          </div>
+        </div>
+      </div>
+      <div class="pes__num-card">
+        <div class="pes__num-badge">2</div>
+        <div>
+          <div class="pes__num-title">Desnutrição generalizada</div>
+          <div class="pes__num-desc">
+            Camponeses mal alimentados, submetidos a trabalho exaustivo e tributos pesados.
+            Sistema imunológico fragilizado facilitava a infecção. A fome já assolava a Europa
+            antes da Peste (Grande Fome de 1315–1322).
+          </div>
+        </div>
+      </div>
+      <div class="pes__num-card">
+        <div class="pes__num-badge">3</div>
+        <div>
+          <div class="pes__num-title">Rotas comerciais — o vetor ideal</div>
+          <div class="pes__num-desc">
+            Navios mercantes levavam ratos infectados de porto em porto pela Rota da Seda
+            e pelo Mediterrâneo. As mesmas rotas que traziam riqueza trouxeram a morte.
+            Em 1347, a doença chegou à Sicília; em 1348, já estava em toda a Europa.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela dos tipos -->
+    <div class="pes__section-label">Os três tipos de peste</div>
+    <div class="pes__table-wrap">
+      <table class="pes__table">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Principal sintoma</th>
+            <th>Transmissão</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bubônica</strong></td>
+            <td>Ínguas inchadas (bubões) nas virilhas e axilas</td>
+            <td>Picada de pulga infectada</td>
+          </tr>
+          <tr>
+            <td><strong>Septicêmica</strong></td>
+            <td>Manchas negras na pele, hemorragia interna</td>
+            <td>Bactéria entra na corrente sanguínea</td>
+          </tr>
+          <tr>
+            <td><strong>Pneumônica</strong></td>
+            <td>Tosse com sangue, febre alta</td>
+            <td>Gotículas respiratórias (pessoa a pessoa)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Consequências -->
+    <div class="pes__section-label">Consequências históricas</div>
+    <div class="pes__cards-grid">
+      <div class="pes__card pes__card--blue">
+        <h3>👥 Consequências Demográficas</h3>
+        <ul>
+          <li>Redução de 30 a 60% da população europeia</li>
+          <li>Aldeias inteiras abandonadas ("pueblos fantasma")</li>
+          <li>Escassez de mão de obra em toda a Europa</li>
+        </ul>
+      </div>
+      <div class="pes__card pes__card--gold">
+        <h3>💰 Consequências Econômicas</h3>
+        <ul>
+          <li>Trabalhadores passaram a exigir <strong>melhores condições</strong></li>
+          <li>Salários subiram pela escassez de mão de obra</li>
+          <li>Senhores feudais perderam poder econômico</li>
+        </ul>
+      </div>
+      <div class="pes__card pes__card--red">
+        <h3>⚖️ Consequências Sociais</h3>
+        <ul>
+          <li>Desconfiança na Igreja (não conseguiu explicar nem parar a Peste)</li>
+          <li>Perseguição de bodes expiatórios (judeus, estrangeiros)</li>
+          <li>Proliferação das Danças da Morte e arte macabra</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conexão histórica -->
+    <div class="pes__conexao">
+      <div class="pes__conexao-label">Cadeia de causas</div>
+      <p>
+        <strong>Peste Negra</strong> → menos trabalhadores disponíveis →
+        senhores feudais exigiam <strong>mais tributos</strong> para compensar →
+        camponeses não suportavam mais a exploração →
+        <strong>Revoltas Camponesas</strong> (Jacqueries e Revolta de Wat Tyler) →
+        enfraquecimento do feudalismo → abertura para o mundo moderno.
+      </p>
+    </div>
+
+  </div>
+</div>

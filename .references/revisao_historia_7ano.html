@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisão de História – 7º Ano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --paper: #fffef9;
+    --ink: #1c1a16;
+    --ink2: #4a4640;
+    --ink3: #8a8580;
+    --accent1: #8b3a2a;
+    --accent2: #1a4a6b;
+    --accent3: #3a6b2a;
+    --accent4: #6b5a1a;
+    --gold: #c8932a;
+    --divider: #e0dbd0;
+    --card: #fffef9;
+    --tag-bg: #f0ebe0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; }
+
+  /* Hero */
+  .hero { background: var(--accent2); color: #fff; padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+  .hero-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.75rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; margin-bottom: 0.5rem; }
+  .hero-sub { opacity: 0.8; font-size: 1rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+  .hero-tag { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 0.3rem 0.85rem; border-radius: 99px; font-size: 0.8rem; }
+
+  /* Nav */
+  .toc { background: var(--paper); border-bottom: 1px solid var(--divider); padding: 0 1rem; position: sticky; top: 0; z-index: 100; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a { display: block; padding: 0.85rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--ink2); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .toc a:hover { color: var(--accent1); border-bottom-color: var(--accent1); }
+
+  /* Layout */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Sections */
+  .section { padding: 3.5rem 0; border-bottom: 1px solid var(--divider); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem; }
+  .section-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; line-height: 1; color: var(--divider); flex-shrink: 0; width: 3.5rem; text-align: right; }
+  .section-title { padding-top: 0.3rem; }
+  .section-title h2 { font-family: 'Playfair Display', serif; font-size: 1.65rem; font-weight: 700; color: var(--ink); }
+  .section-title .period { font-size: 0.8rem; font-weight: 500; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Cards */
+  .card { background: var(--card); border: 1px solid var(--divider); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; }
+  .card-accent-red { border-left: 4px solid var(--accent1); }
+  .card-accent-blue { border-left: 4px solid var(--accent2); }
+  .card-accent-green { border-left: 4px solid var(--accent3); }
+  .card-accent-gold { border-left: 4px solid var(--gold); }
+  .card h3 { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--ink); }
+  .card p { color: var(--ink2); font-size: 0.95rem; }
+
+  /* Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Key concept box */
+  .concept { background: #f5f0e8; border: 1px solid #ddd6c4; border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+  .concept-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.4rem; }
+  .concept p { font-size: 0.95rem; color: var(--ink2); }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 2rem; margin: 1.5rem 0; }
+  .timeline::before { content: ''; position: absolute; left: 0.6rem; top: 0; bottom: 0; width: 2px; background: var(--divider); }
+  .tl-item { position: relative; margin-bottom: 1.5rem; }
+  .tl-dot { position: absolute; left: -1.82rem; top: 0.35rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent2); border: 2px solid var(--bg); }
+  .tl-year { font-size: 0.78rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; }
+  .tl-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin: 0.1rem 0; }
+  .tl-desc { font-size: 0.9rem; color: var(--ink2); }
+
+  /* Quote */
+  .quote-block { border-left: 3px solid var(--gold); padding: 1rem 1.5rem; background: #fdf8f0; border-radius: 0 8px 8px 0; margin: 1.25rem 0; font-family: 'Source Serif 4', serif; font-style: italic; color: var(--ink2); font-size: 0.97rem; }
+  .quote-source { font-style: normal; font-size: 0.8rem; color: var(--ink3); margin-top: 0.4rem; }
+
+  /* Diagram SVG wrapper */
+  .diagram-wrap { margin: 1.5rem 0; overflow: hidden; border-radius: 10px; border: 1px solid var(--divider); background: var(--paper); }
+  .diagram-caption { font-size: 0.8rem; color: var(--ink3); text-align: center; padding: 0.5rem; border-top: 1px solid var(--divider); background: var(--tag-bg); }
+
+  /* Layers visual */
+  .layers { margin: 1.25rem 0; }
+  .layer { display: flex; align-items: stretch; margin-bottom: 3px; border-radius: 6px; overflow: hidden; }
+  .layer-label { width: 140px; flex-shrink: 0; font-size: 0.82rem; font-weight: 600; padding: 0.65rem 1rem; display: flex; align-items: center; }
+  .layer-bar { flex: 1; padding: 0.65rem 1rem; font-size: 0.82rem; display: flex; align-items: center; }
+
+  /* Quiz */
+  .quiz-box { background: #eef4fb; border: 1px solid #c5d9ee; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; }
+  .quiz-box h3 { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; color: var(--accent2); margin-bottom: 1rem; }
+  .quiz-options { list-style: none; }
+  .quiz-option { padding: 0.7rem 1rem; border: 1.5px solid #c5d9ee; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; font-size: 0.92rem; color: var(--ink2); transition: all 0.18s; background: #fff; }
+  .quiz-option:hover { border-color: var(--accent2); color: var(--accent2); }
+  .quiz-option.correct { background: #e6f4e6; border-color: #4a9b4a; color: #2a6b2a !important; }
+  .quiz-option.wrong { background: #fde8e8; border-color: #c44; color: #922 !important; }
+  .quiz-feedback { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.6rem 1rem; border-radius: 6px; display: none; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: #e6f4e6; color: #2a5a2a; border: 1px solid #4a9b4a; }
+  .quiz-feedback.err { background: #fde8e8; color: #7a2222; border: 1px solid #c44; }
+
+  /* Key terms */
+  .term-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+  .term-card { background: var(--tag-bg); border: 1px solid var(--divider); border-radius: 8px; padding: 0.9rem 1rem; }
+  .term-word { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .term-def { font-size: 0.82rem; color: var(--ink2); line-height: 1.5; }
+
+  /* Comparison table */
+  table.compare { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1.25rem 0; }
+  table.compare th { background: var(--accent2); color: #fff; padding: 0.7rem 1rem; text-align: left; font-weight: 500; }
+  table.compare th:first-child { border-radius: 8px 0 0 0; }
+  table.compare th:last-child { border-radius: 0 8px 0 0; }
+  table.compare td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--divider); color: var(--ink2); vertical-align: top; }
+  table.compare tr:nth-child(even) td { background: #f7f4ee; }
+
+  /* Big number highlight */
+  .highlight-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--accent2); line-height: 1; }
+
+  /* Icon callout */
+  .icon-callout { display: flex; gap: 1rem; align-items: flex-start; background: #fdf8f0; border: 1px solid #e8dfc8; border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0; }
+  .icon-callout .icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; }
+  .icon-callout p { font-size: 0.92rem; color: var(--ink2); }
+  .icon-callout strong { color: var(--ink); }
+
+  /* Accordion */
+  details { border: 1px solid var(--divider); border-radius: 8px; margin-bottom: 0.6rem; overflow: hidden; }
+  details summary { padding: 0.85rem 1.1rem; font-weight: 500; font-size: 0.93rem; cursor: pointer; background: var(--tag-bg); list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--ink); }
+  details summary::after { content: '+'; font-size: 1.2rem; color: var(--ink3); }
+  details[open] summary::after { content: '−'; }
+  details .detail-body { padding: 1rem 1.25rem; font-size: 0.92rem; color: var(--ink2); background: var(--paper); }
+
+  /* Footer */
+  footer { background: var(--accent2); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; margin-top: 2rem; }
+
+  h4 { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin: 1rem 0 0.5rem; }
+  ul.list { padding-left: 1.2rem; color: var(--ink2); font-size: 0.93rem; margin: 0.5rem 0; }
+  ul.list li { margin-bottom: 0.35rem; }
+  .tag { display: inline-block; background: var(--tag-bg); border: 1px solid var(--divider); border-radius: 99px; padding: 0.15rem 0.7rem; font-size: 0.75rem; color: var(--ink2); margin: 0.1rem; }
+  .badge { display: inline-block; border-radius: 99px; padding: 0.2rem 0.8rem; font-size: 0.75rem; font-weight: 600; }
+  .badge-red { background: #fde8e8; color: #8a2020; }
+  .badge-blue { background: #e6f0fa; color: #1a4a6b; }
+  .badge-green { background: #e8f5e8; color: #2a5a2a; }
+  .badge-gold { background: #fdf2d8; color: #7a5a10; }
+
+  .section-divider { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 1.5rem; }
+  .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--divider); }
+  .section-divider span { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Revisão Completa • AC 1 • 7º Ano</div>
+  <h1>História Medieval<br>& Início da Modernidade</h1>
+  <div class="hero-sub">Tudo o que vai cair na sua prova — de Cruzadas à Peste Negra</div>
+  <div class="hero-tags">
+    <span class="hero-tag">Absolutismo</span>
+    <span class="hero-tag">Mercantilismo</span>
+    <span class="hero-tag">Cruzadas</span>
+    <span class="hero-tag">Burguesia</span>
+    <span class="hero-tag">Peste Negra</span>
+    <span class="hero-tag">Revoltas Camponesas</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc">
+  <a href="#s1">1. Absolutismo</a>
+  <a href="#s2">2. Mercantilismo</a>
+  <a href="#s3">3. Cruzadas</a>
+  <a href="#s4">4. Burgos & Burguesia</a>
+  <a href="#s5">5. Peste Negra</a>
+  <a href="#s6">6. Revoltas</a>
+  <a href="#s7">Quiz Final</a>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 1 — ABSOLUTISMO
+════════════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title">
+      <div class="period">Séculos XV – XVIII</div>
+      <h2>Absolutismo Monárquico</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">O absolutismo foi um sistema de governo no qual o rei concentrava em suas mãos todo o poder do Estado — legislativo, executivo e judiciário. Não havia assembleias que limitassem o rei; ele governava em nome próprio e, segundo seus defensores, em nome de Deus.</p>
+
+  <!-- Diagrama piramidal de poder -->
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 300">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- Pirâmide -->
+      <polygon points="340,30 130,250 550,250" fill="#e8f0fa" stroke="#1a4a6b" stroke-width="1.5"/>
+      <!-- Divisões -->
+      <line x1="220" y1="140" x2="460" y2="140" stroke="#1a4a6b" stroke-width="1" opacity="0.4"/>
+      <line x1="170" y1="200" x2="510" y2="200" stroke="#1a4a6b" stroke-width="1" opacity="0.4"/>
+      <!-- Rótulos pirâmide -->
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="600" fill="#1a4a6b" text-anchor="middle" x="340" y="108">REI</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#1a4a6b" text-anchor="middle" x="340" y="124">Todo poder concentrado</text>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#3a5a8a" text-anchor="middle" x="340" y="172">NOBREZA · BURGUESIA · IGREJA</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#3a5a8a" text-anchor="middle" x="340" y="188">Apoiam o poder do rei</text>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#5a7aa0" text-anchor="middle" x="340" y="228">POVO / CAMPONESES</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#5a7aa0" text-anchor="middle" x="340" y="244">Maioria da população, pouco poder</text>
+      <!-- Label lateral -->
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#888" text-anchor="middle" x="90" y="148">+ PODER</text>
+      <line x1="90" y1="155" x2="90" y2="230" stroke="#aaa" stroke-width="1" marker-end="url(#arrow)"/>
+    </svg>
+    <div class="diagram-caption">Estrutura social no absolutismo: quanto mais alto na pirâmide, mais poder</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card card-accent-blue">
+      <h3>Características principais</h3>
+      <ul class="list">
+        <li>Poder concentrado no rei</li>
+        <li>Não há limites legais ao rei</li>
+        <li>Rei é juiz, legislador e executor</li>
+        <li>Exércitos permanentes controlados pelo rei</li>
+        <li>Centralização da burocracia</li>
+      </ul>
+    </div>
+    <div class="card card-accent-red">
+      <h3>Quem apoiava o rei?</h3>
+      <ul class="list">
+        <li><strong>Burguesia:</strong> queria comércio unificado, moeda estável, estradas seguras</li>
+        <li><strong>Igreja:</strong> fornecia legitimidade religiosa</li>
+        <li><strong>Nobreza:</strong> mantinha privilégios em troca de lealdade</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"><span>Teoria do Direito Divino</span></div>
+
+  <div class="concept">
+    <div class="concept-label">Conceito-chave da prova</div>
+    <p><strong>Direito Divino dos Reis:</strong> teoria que afirmava que o poder do rei vinha diretamente de Deus. Obedecer o rei era o mesmo que obedecer a Deus. Questionar o rei era, portanto, um pecado.</p>
+  </div>
+
+  <div class="quote-block">
+    "Bossuet escreveu <em>A Política tirada da Sagrada Escritura</em> na qual, apoiando-se na Bíblia, explicava a origem do poder e da autoridade do rei."
+    <div class="quote-source">— Fonte usada na prova</div>
+  </div>
+
+  <div class="icon-callout">
+    <div class="icon">⚜️</div>
+    <p><strong>Luís XIV — "Eu sou o Estado":</strong> O Rei Sol foi o maior símbolo do absolutismo. Reunia escritores, artistas e filósofos em Versalhes para exaltar sua grandeza. O bispo Bossuet foi seu preceptor e escreveu para justificar seu poder com base na Bíblia.</p>
+  </div>
+
+  <!-- Linha do tempo -->
+  <div class="section-divider"><span>Linha do tempo</span></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Séc. XV–XVI</div>
+      <div class="tl-title">Formação dos Estados Nacionais</div>
+      <div class="tl-desc">Reis centralizam poder, unificam territórios com apoio da burguesia e da Igreja.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--gold)"></div>
+      <div class="tl-year">1638–1715</div>
+      <div class="tl-title">Reinado de Luís XIV (França)</div>
+      <div class="tl-desc">Ápice do absolutismo. Palácio de Versalhes construído como símbolo de poder.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--accent1)"></div>
+      <div class="tl-year">1670–1681</div>
+      <div class="tl-title">Bossuet escreve "A Política..."</div>
+      <div class="tl-desc">Justificação bíblica do poder absoluto do rei. Base teórica do absolutismo francês.</div>
+    </div>
+  </div>
+
+  <!-- Quiz rápido -->
+  <div class="quiz-box" id="q1">
+    <h3>🧠 Teste rápido — Absolutismo</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">Segundo a teoria do Direito Divino, quem dava poder ao rei?</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'q1',false)">A nobreza e os grandes proprietários de terra</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q1',false)">O povo, por meio de eleições</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q1',true)">Deus — o poder do rei era sagrado e inquestionável</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q1',false)">A Igreja, que poderia retirar o poder a qualquer momento</li>
+    </ul>
+    <div class="quiz-feedback" id="q1-fb"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 2 — MERCANTILISMO
+════════════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title">
+      <div class="period">Séculos XV – XVIII</div>
+      <h2>Mercantilismo</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">O mercantilismo foi o conjunto de práticas econômicas adotadas pelos Estados Nacionais para enriquecer o reino e fortalecer o poder do rei. A riqueza de um país era medida pela quantidade de metais preciosos que possuía.</p>
+
+  <!-- Diagrama do fluxo mercantilista -->
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 200">
+      <defs>
+        <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- Boxes -->
+      <rect x="30" y="70" width="140" height="56" rx="8" fill="#e8f0fa" stroke="#1a4a6b" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#1a4a6b" text-anchor="middle" x="100" y="96">Colônias</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#3a5a8a" text-anchor="middle" x="100" y="114">Fornecem matéria-prima</text>
+
+      <rect x="270" y="70" width="140" height="56" rx="8" fill="#fdf2d8" stroke="#c8932a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#7a5a10" text-anchor="middle" x="340" y="96">Metrópole (Reino)</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#8a6a20" text-anchor="middle" x="340" y="114">Acumula ouro e prata</text>
+
+      <rect x="510" y="70" width="140" height="56" rx="8" fill="#e8f5e8" stroke="#3a6b2a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="580" y="96">Mercado Externo</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#3a6a3a" text-anchor="middle" x="580" y="114">Exportações (mais vendas)</text>
+
+      <!-- Arrows -->
+      <line x1="170" y1="98" x2="268" y2="98" stroke="#c8932a" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#888" text-anchor="middle" x="219" y="90">recursos</text>
+      <line x1="410" y1="98" x2="508" y2="98" stroke="#3a6b2a" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#888" text-anchor="middle" x="459" y="90">manufaturas</text>
+
+      <!-- Volta: importações bloqueadas -->
+      <path d="M508 126 Q460 170 340 170 Q220 170 172 126" fill="none" stroke="#c44" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr2)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#c44" text-anchor="middle" x="340" y="185">importações bloqueadas (protecionismo)</text>
+    </svg>
+    <div class="diagram-caption">Fluxo mercantilista: colônia → metrópole → exportação. Importações eram evitadas (balança comercial favorável)</div>
+  </div>
+
+  <div class="section-divider"><span>As Principais Práticas Mercantilistas</span></div>
+
+  <div class="term-grid">
+    <div class="term-card">
+      <div class="term-word">💰 Metalismo</div>
+      <div class="term-def">Acúmulo de ouro, prata e diamantes como medida da riqueza do reino.</div>
+    </div>
+    <div class="term-card">
+      <div class="term-word">🚢 Colonialismo</div>
+      <div class="term-def">Colônias forneciam matéria-prima barata e compravam manufaturados caros.</div>
+    </div>
+    <div class="term-card">
+      <div class="term-word">🏭 Protecionismo</div>
+      <div class="term-def">Altas taxas (tarifas) sobre produtos importados para proteger a indústria nacional.</div>
+    </div>
+    <div class="term-card">
+      <div class="term-word">⚖️ Balança comercial</div>
+      <div class="term-def">Exportar mais do que importar para que o dinheiro entre no reino, não saia.</div>
+    </div>
+    <div class="term-card">
+      <div class="term-word">🏰 Estatismo</div>
+      <div class="term-def">O Estado controla a economia: fixa preços, regula comércio, cria monopólios.</div>
+    </div>
+    <div class="term-card">
+      <div class="term-word">📜 Monopólios</div>
+      <div class="term-def">O rei concedia a empresas (como a Cia. das Índias) o direito exclusivo de comercializar.</div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="concept-label">O que cai na prova</div>
+    <p>O mercantilismo <strong>NÃO</strong> defendia livre comércio — era o oposto! O Estado controlava tudo. A riqueza vinha do <strong>acúmulo de metais preciosos</strong> e da <strong>exportação maior que a importação</strong>.</p>
+  </div>
+
+  <div class="quiz-box" id="q2">
+    <h3>🧠 Teste rápido — Mercantilismo</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">O que o mercantilismo NÃO defendia?</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'q2',false)">Acúmulo de ouro e prata pelo Estado</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q2',false)">Controle da economia pelo rei</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q2',true)">Liberdade econômica total, sem intervenção do Estado</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q2',false)">Exportar mais do que importar</li>
+    </ul>
+    <div class="quiz-feedback" id="q2-fb"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 3 — CRUZADAS
+════════════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div class="section-title">
+      <div class="period">1096 – 1291</div>
+      <h2>As Cruzadas</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">As Cruzadas foram expedições militares organizadas pela Igreja Católica entre os séculos XI e XIII com o objetivo <em>declarado</em> de recuperar Jerusalém dos muçulmanos. Mas havia muito mais por trás delas — como a imagem do iceberg na prova sugere.</p>
+
+  <!-- Iceberg diagram -->
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 360">
+      <!-- Fundo água -->
+      <rect x="0" y="180" width="680" height="180" fill="#dbeaf8" rx="0"/>
+      <!-- Iceberg topo (visível) -->
+      <polygon points="340,40 230,180 450,180" fill="#eef6fb" stroke="#3a7ab5" stroke-width="1.5"/>
+      <!-- Iceberg fundo (submerso) -->
+      <polygon points="230,180 170,310 310,340 400,360 510,310 450,180" fill="#b8d9f0" stroke="#3a7ab5" stroke-width="1.5" opacity="0.9"/>
+      <!-- Linha água -->
+      <line x1="0" y1="180" x2="680" y2="180" stroke="#3a7ab5" stroke-width="2" stroke-dasharray="8 4"/>
+      <!-- Rótulo topo -->
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" fill="#1a4a6b" text-anchor="middle" x="340" y="118">MOTIVAÇÕES RELIGIOSAS</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#2a5a8b" text-anchor="middle" x="340" y="136">Recuperar Jerusalém</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#2a5a8b" text-anchor="middle" x="340" y="152">Proteger cristãos no Oriente</text>
+      <!-- Rótulo água -->
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#3a7ab5" text-anchor="middle" x="340" y="172">VISÍVEL</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#1a5a8b" text-anchor="middle" x="340" y="198">OCULTO</text>
+      <!-- Rótulos fundo -->
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#0d3a6b" text-anchor="middle" x="340" y="238">FATORES SOCIOECONÔMICOS</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#1a4a6b" text-anchor="middle" x="340" y="258">Superpopulação na Europa</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#1a4a6b" text-anchor="middle" x="340" y="276">Busca de terras pela nobreza</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#1a4a6b" text-anchor="middle" x="340" y="294">Controle das rotas comerciais</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#1a4a6b" text-anchor="middle" x="340" y="312">Interesses econômicos e políticos</text>
+    </svg>
+    <div class="diagram-caption">O "iceberg" das Cruzadas: a religião era a parte visível, mas os fatores econômicos e políticos eram a base</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card card-accent-blue">
+      <h3>Quem participava?</h3>
+      <ul class="list">
+        <li><strong>Nobres:</strong> buscavam terras e riquezas</li>
+        <li><strong>Camponeses:</strong> sim, também participavam (ao contrário do que diz a alternativa A da prova!)</li>
+        <li><strong>Mercadores:</strong> queriam rotas comerciais</li>
+        <li><strong>Clero:</strong> liderava espiritualmente</li>
+      </ul>
+    </div>
+    <div class="card card-accent-red">
+      <h3>Consequências para o feudalismo</h3>
+      <ul class="list">
+        <li>Nobres pobres venderam ou perderam terras</li>
+        <li>Reis fortaleceram seu poder</li>
+        <li>Comércio com o Oriente se expandiu</li>
+        <li>Surgimento de uma classe mercante</li>
+        <li>Sistema feudal começou a se desestruturar</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="icon-callout">
+    <div class="icon">⚠️</div>
+    <p><strong>Cuidado com a alternativa errada!</strong> A prova diz que o Papa proibiu camponeses de participar — isso é FALSO. Camponeses participaram em grande número, especialmente nas Cruzadas Populares.</p>
+  </div>
+
+  <div class="quiz-box" id="q3">
+    <h3>🧠 Teste rápido — Cruzadas</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">Qual foi uma consequência das Cruzadas para o sistema feudal?</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'q3',false)">O feudalismo se fortaleceu, pois os nobres voltaram com mais terras</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q3',true)">Nobres pobres perderam suas terras, fortalecendo o poder dos reis</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q3',false)">A Igreja passou a controlar todos os exércitos da Europa</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q3',false)">O comércio com o Oriente foi completamente interrompido</li>
+    </ul>
+    <div class="quiz-feedback" id="q3-fb"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 4 — BURGOS E BURGUESIA
+════════════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div class="section-title">
+      <div class="period">Baixa Idade Média – Séc. XI em diante</div>
+      <h2>Burgos e o Surgimento da Burguesia</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">A partir do século XI a Europa passou por grandes transformações: crescimento populacional, aumento da produção agrícola e retomada do comércio. Isso criou um novo cenário urbano — e um novo grupo social.</p>
+
+  <!-- Diagrama crescimento urbano -->
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 240">
+      <defs>
+        <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- Causa 1 -->
+      <rect x="20" y="30" width="140" height="60" rx="8" fill="#e8f5e8" stroke="#3a6b2a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="90" y="56">Crescimento</text>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="90" y="72">Populacional</text>
+      <!-- Causa 2 -->
+      <rect x="20" y="110" width="140" height="60" rx="8" fill="#e8f5e8" stroke="#3a6b2a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="90" y="136">Retomada do</text>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="90" y="152">Comércio</text>
+      <!-- Causa 3 -->
+      <rect x="20" y="190" width="140" height="40" rx="8" fill="#e8f5e8" stroke="#3a6b2a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="90" y="216">Feiras e rotas</text>
+      <!-- Setas para BURGO -->
+      <line x1="160" y1="60" x2="250" y2="100" stroke="#3a6b2a" stroke-width="1.5" marker-end="url(#arr3)"/>
+      <line x1="160" y1="140" x2="250" y2="120" stroke="#3a6b2a" stroke-width="1.5" marker-end="url(#arr3)"/>
+      <line x1="160" y1="210" x2="250" y2="135" stroke="#3a6b2a" stroke-width="1.5" marker-end="url(#arr3)"/>
+      <!-- BURGO -->
+      <rect x="250" y="70" width="130" height="80" rx="10" fill="#fdf2d8" stroke="#c8932a" stroke-width="2"/>
+      <text font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" fill="#7a5a10" text-anchor="middle" x="315" y="108">BURGO</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#8a6a20" text-anchor="middle" x="315" y="128">Cidade murada</text>
+      <!-- Seta BURGO → BURGUESIA -->
+      <line x1="380" y1="110" x2="450" y2="110" stroke="#c8932a" stroke-width="2" marker-end="url(#arr3)"/>
+      <!-- BURGUESIA -->
+      <rect x="450" y="70" width="210" height="80" rx="10" fill="#fde8e8" stroke="#8b3a2a" stroke-width="2"/>
+      <text font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" fill="#6a2a1a" text-anchor="middle" x="555" y="108">BURGUESIA</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#8b3a2a" text-anchor="middle" x="555" y="128">Classe dos burgos = mercadores</text>
+    </svg>
+    <div class="diagram-caption">Do crescimento econômico ao nascimento da burguesia como nova classe social</div>
+  </div>
+
+  <div class="concept">
+    <div class="concept-label">A palavra que a prova pede</div>
+    <p>Quem morava nos <strong>burgos</strong> era chamado de <strong>burguês</strong>. O conjunto desses burgueses formou a <strong>burguesia</strong> — uma nova classe social identificada pela sua grande atividade comercial, diferente dos nobres e dos camponeses.</p>
+  </div>
+
+  <table class="compare">
+    <tr>
+      <th>Grupo social</th>
+      <th>De onde vinha a riqueza</th>
+      <th>Onde vivia</th>
+    </tr>
+    <tr>
+      <td><strong>Nobreza</strong></td>
+      <td>Hereditária, posse de terras</td>
+      <td>Castelos, campo</td>
+    </tr>
+    <tr>
+      <td><strong>Clero</strong></td>
+      <td>Dízimos, terras da Igreja</td>
+      <td>Mosteiros, igrejas</td>
+    </tr>
+    <tr>
+      <td><strong>Burguesia</strong> ← novo</td>
+      <td>Comércio, artesanato, finanças</td>
+      <td><strong>Burgos</strong> — cidades muradas</td>
+    </tr>
+    <tr>
+      <td><strong>Camponeses</strong></td>
+      <td>Trabalho na terra (servos)</td>
+      <td>Campo, feudos</td>
+    </tr>
+  </table>
+
+  <div class="quiz-box" id="q4">
+    <h3>🧠 Teste rápido — Burguesia</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">A palavra "burguesia" vem de:</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'q4',false)">Burgo → burros (animais de carga usados no comércio)</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q4',true)">Burgo → cidade murada onde os comerciantes moravam</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q4',false)">Bourgeois → nome de uma família nobre francesa</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q4',false)">Bergamo → cidade italiana famosa pelo comércio</li>
+    </ul>
+    <div class="quiz-feedback" id="q4-fb"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 5 — PESTE NEGRA
+════════════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-title">
+      <div class="period">1347 – 1353</div>
+      <h2>A Peste Negra</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">A Peste Negra foi a maior pandemia da história medieval, matando entre 30% e 60% da população europeia. A prova pede que você explique <strong>por que ela virou epidemia</strong> — o que significa falar das condições que facilitaram sua propagação.</p>
+
+  <!-- Diagrama de transmissão -->
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 220">
+      <defs>
+        <marker id="arr4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- Rato -->
+      <rect x="30" y="80" width="120" height="56" rx="8" fill="#f0ebe0" stroke="#8a8580" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="20" text-anchor="middle" x="90" y="105">🐀</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#4a4640" text-anchor="middle" x="90" y="126">Rato infectado</text>
+      <!-- Pulga -->
+      <rect x="240" y="80" width="120" height="56" rx="8" fill="#fde8e8" stroke="#c44" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="20" text-anchor="middle" x="300" y="105">🦟</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#922" text-anchor="middle" x="300" y="126">Pulga (vetor)</text>
+      <!-- Humano -->
+      <rect x="450" y="80" width="120" height="56" rx="8" fill="#fde8e8" stroke="#8b3a2a" stroke-width="1.5"/>
+      <text font-family="'DM Sans',sans-serif" font-size="20" text-anchor="middle" x="510" y="105">🧑</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#6a2a1a" text-anchor="middle" x="510" y="126">Ser humano</text>
+      <!-- Setas -->
+      <line x1="150" y1="108" x2="238" y2="108" stroke="#c44" stroke-width="2" marker-end="url(#arr4)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#c44" text-anchor="middle" x="194" y="100">picada</text>
+      <line x1="360" y1="108" x2="448" y2="108" stroke="#8b3a2a" stroke-width="2" marker-end="url(#arr4)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#8b3a2a" text-anchor="middle" x="404" y="100">transmite</text>
+      <!-- Patógeno label -->
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#5a2a2a" text-anchor="middle" x="340" y="175">PATÓGENO: Yersinia pestis (bactéria)</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#8a5a5a" text-anchor="middle" x="340" y="195">Agente biológico causador da doença — carregado por ratos, transmitido por pulgas</text>
+    </svg>
+    <div class="diagram-caption">Cadeia de transmissão da Peste Negra: rato → pulga → humano</div>
+  </div>
+
+  <div class="section-divider"><span>Por que virou epidemia? (O que a prova pede)</span></div>
+
+  <div class="two-col">
+    <div class="card card-accent-red">
+      <h3>Fator 1 — Condições sanitárias</h3>
+      <p>As cidades medievais acumulavam lixo e esgoto nas ruas. O convívio próximo com animais (ratos, porcos) era comum. Não havia noção de higiene. Esse ambiente era perfeito para ratos e pulgas se multiplicarem.</p>
+    </div>
+    <div class="card card-accent-red">
+      <h3>Fator 2 — Má alimentação e baixa imunidade</h3>
+      <p>A maior parte da população era pobre e tinha alimentação insuficiente. A desnutrição enfraquecia o sistema imunológico, tornando as pessoas mais vulneráveis à doença.</p>
+    </div>
+    <div class="card card-accent-gold">
+      <h3>Fator 3 — Rotas comerciais</h3>
+      <p>A doença veio da Ásia pelas rotas comerciais. Os ratos viajavam nos navios mercantes. O comércio intenso da Baixa Idade Média facilitou a rápida dispersão pelo continente.</p>
+    </div>
+    <div class="card card-accent-gold">
+      <h3>Fator 4 — Período de incubação longo</h3>
+      <p>A doença levava de 1 a 3 dias para se manifestar. Ratos podiam carregar a bactéria por quase um mês sem morrer, viajando longas distâncias e infectando novas populações.</p>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="concept-label">Definição: Patógeno</div>
+    <p>São agentes biológicos como <strong>vírus, bactérias, fungos, parasitas e príons</strong>, capazes de causar doenças em um organismo hospedeiro (humanos, animais ou plantas). Na Peste Negra, o patógeno era a bactéria <em>Yersinia pestis</em>.</p>
+  </div>
+
+  <div class="quiz-box" id="q5">
+    <h3>🧠 Teste rápido — Peste Negra</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">Qual fator favoreceu a epidemia de Peste Negra na Baixa Idade Média?</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'q5',false)">A população era muito saudável e tinha boa alimentação</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q5',true)">O acúmulo de sujeira, o contato com ratos e a má alimentação tornavam as pessoas vulneráveis</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q5',false)">Havia muitos médicos, mas eles não tinham interesse em curar os pobres</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q5',false)">A doença era transmitida apenas por contato com bois e vacas</li>
+    </ul>
+    <div class="quiz-feedback" id="q5-fb"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 6 — REVOLTAS CAMPONESAS
+════════════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div class="section-title">
+      <div class="period">Baixa Idade Média – Séc. XIV</div>
+      <h2>Revoltas Camponesas</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">A Baixa Idade Média foi marcada por uma série de revoltas populares. Os camponeses, exaustos da exploração feudal e traumatizados pela Peste Negra, se levantaram em várias regiões da Europa.</p>
+
+  <!-- Diagrama causas → revoltas -->
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 260">
+      <defs>
+        <marker id="arr5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- Causas (esquerda) -->
+      <rect x="20" y="20" width="180" height="44" rx="8" fill="#fde8e8" stroke="#c44" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#922" text-anchor="middle" x="110" y="40">Superexploração feudal</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#c44" text-anchor="middle" x="110" y="57">Impostos, servidão, corvéia</text>
+
+      <rect x="20" y="90" width="180" height="44" rx="8" fill="#fde8e8" stroke="#c44" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#922" text-anchor="middle" x="110" y="110">Sequelas da Peste Negra</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#c44" text-anchor="middle" x="110" y="127">Mortes, fome, instabilidade</text>
+
+      <rect x="20" y="160" width="180" height="44" rx="8" fill="#fde8e8" stroke="#c44" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#922" text-anchor="middle" x="110" y="180">Aumento de tributos</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#c44" text-anchor="middle" x="110" y="197">Para financiar guerras</text>
+
+      <!-- Setas -->
+      <line x1="200" y1="42" x2="298" y2="108" stroke="#c44" stroke-width="1.5" marker-end="url(#arr5)"/>
+      <line x1="200" y1="112" x2="298" y2="118" stroke="#c44" stroke-width="1.5" marker-end="url(#arr5)"/>
+      <line x1="200" y1="182" x2="298" y2="128" stroke="#c44" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+      <!-- Centro: revoltas -->
+      <rect x="300" y="70" width="160" height="80" rx="12" fill="#8b3a2a" stroke="#6a2a1a" stroke-width="1.5"/>
+      <text font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" x="380" y="106">REVOLTAS</text>
+      <text font-family="'DM Sans',sans-serif" font-size="12" fill="#fdd" text-anchor="middle" x="380" y="124">CAMPONESAS</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#faa" text-anchor="middle" x="380" y="142">Séc. XIV</text>
+
+      <!-- Seta → consequências -->
+      <line x1="460" y1="110" x2="510" y2="80" stroke="#8b3a2a" stroke-width="1.5" marker-end="url(#arr5)"/>
+      <line x1="460" y1="110" x2="510" y2="110" stroke="#8b3a2a" stroke-width="1.5" marker-end="url(#arr5)"/>
+      <line x1="460" y1="110" x2="510" y2="145" stroke="#8b3a2a" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+      <!-- Consequências -->
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#6a2a1a" x="516" y="84">Queda do feudalismo</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#6a2a1a" x="516" y="114">Ataques a castelos</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" fill="#6a2a1a" x="516" y="149">Mudanças sociais</text>
+    </svg>
+    <div class="diagram-caption">Causas e consequências das revoltas camponesas medievais</div>
+  </div>
+
+  <div class="section-divider"><span>Principais Revoltas</span></div>
+
+  <details>
+    <summary>Jacquerie (França, 1358)</summary>
+    <div class="detail-body">
+      Revolta de camponeses franceses exaustos das taxas cobradas após a Guerra dos Cem Anos. Os revoltosos atacaram castelos e propriedades da nobreza. Foi violentamente reprimida, mas marcou o início do fim do feudalismo na França.
+    </div>
+  </details>
+  <details>
+    <summary>Revolta dos Camponeses (Inglaterra, 1381)</summary>
+    <div class="detail-body">
+      Liderada por Wat Tyler, foi motivada por um imposto especial criado para financiar guerras. Os camponeses marcharam até Londres, exigindo fim da servidão. O rei Ricardo II prometeu reformas (que depois não cumpriu), e Tyler foi morto numa negociação.
+    </div>
+  </details>
+  <details>
+    <summary>Contexto comum a todas</summary>
+    <div class="detail-body">
+      Em toda a Europa, as revoltas tinham em comum: camponeses cansados da superexploração feudal, sequelas da Peste Negra (que reduziu a mão de obra e deu mais barganha aos sobreviventes), e o aumento de impostos pelos senhores para compensar perdas com a guerra e a epidemia.
+    </div>
+  </details>
+
+  <div class="concept">
+    <div class="concept-label">O que a prova quer que você diga</div>
+    <p>Os camponeses estavam cansados da <strong>superexploração</strong> a que eram submetidos no feudalismo (corvéia, impostos, servidão). Formaram revoltas e atacaram várias partes da Europa, contribuindo para a <strong>desestruturação do sistema feudal</strong>.</p>
+  </div>
+
+  <div class="quiz-box" id="q6">
+    <h3>🧠 Teste rápido — Revoltas Camponesas</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">O principal motivo das revoltas camponesas medievais era:</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'q6',false)">Desejo de se tornarem nobres e ter castelos</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q6',false)">Discordância com as práticas da Igreja Católica</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q6',true)">A superexploração feudal — impostos, servidão e trabalho forçado sem retorno justo</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'q6',false)">A invasão de povos estrangeiros que queriam tomar as terras dos camponeses</li>
+    </ul>
+    <div class="quiz-feedback" id="q6-fb"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 7 — QUIZ FINAL
+════════════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <div class="section-title">
+      <div class="period">Revisão geral</div>
+      <h2>Quiz Final — Simulado da Prova</h2>
+    </div>
+  </div>
+
+  <p style="color:var(--ink2);margin-bottom:1.5rem;">Responda todas as questões abaixo para testar se você está pronto. São questões no estilo da sua prova real.</p>
+
+  <!-- Q Final 1 -->
+  <div class="quiz-box" id="qf1">
+    <h3>Questão 1 — Estados Nacionais Modernos</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">No processo de formação dos Estados Nacionais, qual papel desempenhou a burguesia?</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'qf1',false)">Era contrária à unificação, pois preferia negociar livremente entre fronteiras</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf1',true)">Apoiava o rei para ter comércio unificado, moeda estável e segurança nas estradas</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf1',false)">Queria substituir a nobreza e assumir os cargos militares do reino</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf1',false)">Preferia o feudalismo, pois cada feudo tinha suas próprias regras comerciais</li>
+    </ul>
+    <div class="quiz-feedback" id="qf1-fb"></div>
+  </div>
+
+  <!-- Q Final 2 -->
+  <div class="quiz-box" id="qf2">
+    <h3>Questão 2 — Mercantilismo</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">Cite e explique uma prática mercantilista.</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'qf2',false)">Livre comércio: permitia que qualquer país vendesse sem impostos na metrópole</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf2',true)">Metalismo: o Estado acumulava ouro, prata e diamantes como medida de riqueza do reino</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf2',false)">Democracia econômica: o povo decidia como o dinheiro do Estado seria gasto</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf2',false)">Agricultura como única riqueza: o rei investia apenas em plantações</li>
+    </ul>
+    <div class="quiz-feedback" id="qf2-fb"></div>
+  </div>
+
+  <!-- Q Final 3 -->
+  <div class="quiz-box" id="qf3">
+    <h3>Questão 3 — Cruzadas e Feudalismo</h3>
+    <p style="font-size:0.9rem;color:var(--ink2);margin-bottom:1rem;">Como as Cruzadas contribuíram para a desestruturação do feudalismo?</p>
+    <ul class="quiz-options">
+      <li class="quiz-option" onclick="checkQuiz(this,'qf3',false)">As Cruzadas fortaleceram o feudalismo, pois os nobres voltaram mais ricos</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf3',false)">O Papa usou as Cruzadas para destruir todos os castelos feudais da Europa</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf3',true)">Nobres com pouco dinheiro usaram seus bens nas Cruzadas e ficaram sem terra, fortalecendo o poder dos reis</li>
+      <li class="quiz-option" onclick="checkQuiz(this,'qf3',false)">As Cruzadas nada tiveram a ver com o feudalismo, pois aconteceram em outro continente</li>
+    </ul>
+    <div class="quiz-feedback" id="qf3-fb"></div>
+  </div>
+
+  <!-- Placar -->
+  <div id="score-box" style="display:none;background:#e8f0fa;border:1px solid #c5d9ee;border-radius:10px;padding:1.5rem;text-align:center;margin-top:1.5rem;">
+    <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent2)" id="score-txt"></div>
+    <div style="font-size:0.95rem;color:var(--ink2);margin-top:0.4rem" id="score-msg"></div>
+  </div>
+
+  <!-- Mapa mental resumo -->
+  <div class="section-divider"><span>Resumo Visual — Tudo conectado</span></div>
+  <div class="diagram-wrap">
+    <svg width="100%" viewBox="0 0 680 340">
+      <defs>
+        <marker id="arr6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- Centro: Baixa Idade Média / transição -->
+      <rect x="240" y="140" width="200" height="56" rx="12" fill="#1a4a6b" stroke="#0d3a5b" stroke-width="1.5"/>
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle" x="340" y="165">BAIXA IDADE MÉDIA</text>
+      <text font-family="'DM Sans',sans-serif" font-size="11" fill="#acd" text-anchor="middle" x="340" y="183">Transição para a Modernidade</text>
+
+      <!-- Cruzadas -->
+      <rect x="30" y="20" width="150" height="50" rx="8" fill="#fdf2d8" stroke="#c8932a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#7a5a10" text-anchor="middle" x="105" y="42">Cruzadas</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#8a6a20" text-anchor="middle" x="105" y="60">1096–1291</text>
+      <line x1="180" y1="45" x2="238" y2="158" stroke="#c8932a" stroke-width="1.5" marker-end="url(#arr6)"/>
+
+      <!-- Burgos -->
+      <rect x="30" y="150" width="150" height="50" rx="8" fill="#e8f5e8" stroke="#3a6b2a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#2a5a2a" text-anchor="middle" x="105" y="172">Burgos / Burguesia</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#3a6a3a" text-anchor="middle" x="105" y="190">Séc. XI em diante</text>
+      <line x1="180" y1="175" x2="238" y2="168" stroke="#3a6b2a" stroke-width="1.5" marker-end="url(#arr6)"/>
+
+      <!-- Peste Negra -->
+      <rect x="30" y="270" width="150" height="50" rx="8" fill="#fde8e8" stroke="#c44" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#922" text-anchor="middle" x="105" y="292">Peste Negra</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#c44" text-anchor="middle" x="105" y="310">1347–1353</text>
+      <line x1="180" y1="285" x2="238" y2="185" stroke="#c44" stroke-width="1.5" marker-end="url(#arr6)"/>
+
+      <!-- Absolutismo -->
+      <rect x="500" y="20" width="155" height="50" rx="8" fill="#f0ebe0" stroke="#8a8580" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#4a4640" text-anchor="middle" x="577" y="42">Absolutismo</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#6a6460" text-anchor="middle" x="577" y="60">Séc. XV–XVIII</text>
+      <line x1="440" y1="158" x2="499" y2="45" stroke="#8a8580" stroke-width="1.5" marker-end="url(#arr6)"/>
+
+      <!-- Mercantilismo -->
+      <rect x="500" y="150" width="155" height="50" rx="8" fill="#fdf2d8" stroke="#c8932a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#7a5a10" text-anchor="middle" x="577" y="172">Mercantilismo</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#8a6a20" text-anchor="middle" x="577" y="190">Séc. XV–XVIII</text>
+      <line x1="440" y1="168" x2="499" y2="175" stroke="#c8932a" stroke-width="1.5" marker-end="url(#arr6)"/>
+
+      <!-- Revoltas -->
+      <rect x="500" y="270" width="155" height="50" rx="8" fill="#fde8e8" stroke="#8b3a2a" stroke-width="1"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="#6a2a1a" text-anchor="middle" x="577" y="292">Revoltas Camponesas</text>
+      <text font-family="'DM Sans',sans-serif" font-size="10" fill="#8b3a2a" text-anchor="middle" x="577" y="310">Séc. XIV</text>
+      <line x1="440" y1="185" x2="499" y2="285" stroke="#8b3a2a" stroke-width="1.5" marker-end="url(#arr6)"/>
+    </svg>
+    <div class="diagram-caption">Todos os temas da prova se conectam na transição da Idade Média para a Modernidade</div>
+  </div>
+
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <div>Revisão de História — 7º Ano • Colegio Motiva • AC 1 (Parcial)</div>
+  <div style="margin-top:0.4rem;opacity:0.5">Estudar, revisar e passar! 💪</div>
+</footer>
+
+<script>
+const answers = {};
+const totals = { qf1: false, qf2: false, qf3: false };
+
+function checkQuiz(el, qid, correct) {
+  const container = document.getElementById(qid);
+  const opts = container.querySelectorAll('.quiz-option');
+  const fb = document.getElementById(qid + '-fb');
+  if (container.dataset.done) return;
+  container.dataset.done = '1';
+  opts.forEach(o => { o.style.pointerEvents = 'none'; });
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    opts.forEach(o => {
+      if (o.onclick && o.onclick.toString().includes('true')) o.classList.add('correct');
+    });
+  }
+  fb.classList.add('show');
+  fb.classList.add(correct ? 'ok' : 'err');
+  fb.textContent = correct
+    ? '✅ Correto! Muito bem.'
+    : '❌ Não era essa. Reveja o conteúdo acima e tente lembrar o raciocínio correto.';
+  if (['qf1','qf2','qf3'].includes(qid)) {
+    totals[qid] = correct;
+    const done = Object.values(totals).filter(v => v !== false || v === false).length;
+    const allDone = !Object.values(totals).some(v => v === false && v !== true);
+    // Show score after all 3 final answered
+    const sb = document.getElementById('score-box');
+    const answered = Object.keys(totals).filter(k => document.getElementById(k).dataset.done).length;
+    if (answered === 3) {
+      const n = Object.values(totals).filter(Boolean).length;
+      document.getElementById('score-txt').textContent = n + ' / 3 corretas';
+      document.getElementById('score-msg').textContent = n === 3
+        ? '🏆 Excelente! Você está pronto para a prova!'
+        : n === 2
+        ? '👍 Bom resultado! Reveja o tema que errou.'
+        : '📖 Continue estudando — releia as seções acima.';
+      sb.style.display = 'block';
+      sb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+</script>
+</body>
+</html>
